@@ -26,11 +26,6 @@
     [_Button_4 setTitle: [NSString stringWithFormat:@"예제 4 - %@에서 호출\n 가능한 Objective C 함수\n 만들기", Script]];
     [_Button_5 setTitle: [NSString stringWithFormat:@"예제 5 - %@에서 호출\n 가능한 Objective C 함수\n 만들기", Script]];
     [_Button_6 setTitle: [NSString stringWithFormat:@"예제 6 - %@에서 호출\n 가능한 Objective C 함수\n 만들기", Script]];
-    
-    [_Box_3 setTitle: [NSString stringWithFormat:@"3장 - %@ 확장 모듈 만들기", Script]];
-    [_Button_7 setTitle: [NSString stringWithFormat:@"예제 7 - MyDbgString 함수를\n 동적 라이브러리로 구현하기"]];
-    [_Button_8 setTitle: [NSString stringWithFormat:@"예제 8 - 동적 라이브러리를 %@에서\n 직접 호출할수 있도록 만들기", Script]];
-    
 }
 
 
@@ -159,7 +154,6 @@
         NSLog(@"[myfunc_2]szWhoamI = %@", [Context[@"szWhoamI"] toString]);
         
     
-    
         //////////////////////////////////////////////////////////////
         //
         // Call myfunc_3
@@ -167,8 +161,7 @@
         
         NSLog(@"[myfunc_3]========================================");
         pFunction3 = Context[@"myfunc_3"];
-        NSString *pArg = @"myfunc_3";
-        pReturnValue = [pFunction3 callWithArguments:@[pArg]];
+        pReturnValue = [pFunction3 callWithArguments:nil];
     
         NSLog(@"[myfunc_3]Return 1 = %@", [[pReturnValue toArray] objectAtIndex: 0]);
         NSLog(@"[myfunc_3]Return 2 = %@", [[[pReturnValue toArray] objectAtIndex: 1] intValue]? @"true" : @"false");
@@ -177,7 +170,6 @@
         NSLog(@"[myfunc_3]nVersion = %d", [Context[@"nVersion"] toInt32]);
         
     
-    
         //////////////////////////////////////////////////////////////
         //
         // Call myfunc_4
@@ -185,6 +177,7 @@
         
         NSLog(@"[myfunc_4]========================================");
         pFunction3 = Context[@"myfunc_4"];
+        NSString *pArg = @"myfunc_3";
         pArg = @"myfunc_4";
         pReturnValue = [pFunction3 callWithArguments:@[pArg]];
         
